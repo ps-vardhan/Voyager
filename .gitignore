@@ -1,15 +1,47 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
+# Built-in Gradle files
+.gradle/
+build/
 /build
-/captures
-.externalNativeBuild
-.cxx
+
+# Local configurations
 local.properties
+.navigation/
+
+# Android Studio / IntelliJ IDEA files
+*.iml
+.idea/
+/*.idea/
+.idea/workspace.xml
+.idea/libraries/
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/caches/
+.idea/shelf/
+.idea/gradle.xml
+
+# Keystore files
+*.jks
+*.keystore
+*.pk8
+*.pem
+
+# Crashlytics / Firebase files
+crashlytics/
+crashlytics-build.properties
+google-services.json
+
+# Visual Studio Code configurations
+.vscode/
+
+# Device logs, screenshots & outputs
+/captures/
+*.apk
+*.ap_
+*.aab
+*.dex
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
