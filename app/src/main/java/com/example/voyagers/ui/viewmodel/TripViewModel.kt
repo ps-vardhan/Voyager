@@ -102,10 +102,16 @@ class TripViewModel @Inject constructor(
             val startLatLng = geocoderHelper.getLatLngFromAddress(startLocation)
             val destLatLng = geocoderHelper.getLatLngFromAddress(destination)
 
-            val startLat = startLatLng?.latitude ?: 34.0522 // Fallback to Los Angeles
-            val startLng = startLatLng?.longitude ?: -118.2437
-            val destLat = destLatLng?.latitude ?: 37.7749 // Fallback to San Francisco
-            val destLng = destLatLng?.longitude ?: -122.4194
+            if (startLatLng == null || destLatLng == null) {
+                _uiError.value = "Failed to resolve coordinates. Please check your internet connection and location names."
+                _isSearchingLocation.value = false
+                return@launch
+            }
+
+            val startLat = startLatLng.latitude
+            val startLng = startLatLng.longitude
+            val destLat = destLatLng.latitude
+            val destLng = destLatLng.longitude
 
             repository.startTrip(
                 travelerName = travelerName.trim(),

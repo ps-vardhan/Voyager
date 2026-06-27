@@ -121,10 +121,15 @@ class TrackingService : Service() {
         simulationJob = serviceScope.launch {
             val activeTrip = repository.getActiveTripDirect() ?: return@launch
             
-            val startLat = if (activeTrip.startLatitude != 0.0) activeTrip.startLatitude else 34.0522
-            val startLng = if (activeTrip.startLongitude != 0.0) activeTrip.startLongitude else -118.2437
-            val destLat = if (activeTrip.destinationLatitude != 0.0) activeTrip.destinationLatitude else 37.7749
-            val destLng = if (activeTrip.destinationLongitude != 0.0) activeTrip.destinationLongitude else -122.4194
+            val startLat = activeTrip.startLatitude
+            val startLng = activeTrip.startLongitude
+            val destLat = activeTrip.destinationLatitude
+            val destLng = activeTrip.destinationLongitude
+
+            if (startLat == 0.0 && startLng == 0.0) {
+                stopTrackingService()
+                return@launch
+            }
 
             val steps = 100
             var currentStep = 0
