@@ -1,4 +1,4 @@
-# Voyagers: Offline-First Travel Companion & Safe Tracking Shield
+# Voyagers: Local-First Travel Companion & Safe Tracking Shield
 
 Voyagers is a modern, local-first Android application designed to safeguard travelers by tracking journey progress in real time and automatically notifying designated guardians via SMS at key checkpoints. Built using Jetpack Compose, Room Database, Hilt dependency injection, Google Maps SDK, and native Android services.
 
